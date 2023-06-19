@@ -8,9 +8,9 @@ use Throwable;
 
 function is_cancellation(Throwable $e): bool
 {
-	$previous = $e->getPrevious();
-
-	return is_null($previous) ?
-		$e instanceof CancelledException :
-		is_cancellation($previous);
+	return match (true) {
+		$e instanceof CancelledException => true,
+		!is_null($e = $e->getPrevious()) => is_cancellation($e),
+		default => false,
+	};
 }
