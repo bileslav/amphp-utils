@@ -1,0 +1,24 @@
+{
+    "name": "bileslav/amp-utils",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bileslav\\Amp\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Vlad Biley"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "amphp/amp": "^3.0"
+    }
+}
