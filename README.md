@@ -5,5 +5,5 @@
 This package can be installed as a [Composer](https://getcomposer.org/) dependency.
 
 ```bash
-composer require bileslav/amp-utils
+composer require bileslav/amp-utils:dev-main
 ```

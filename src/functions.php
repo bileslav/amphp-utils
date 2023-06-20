@@ -8,9 +8,15 @@ use Throwable;
 
 function is_cancellation(Throwable $e): bool
 {
-	return match (true) {
-		$e instanceof CancelledException => true,
-		!is_null($e = $e->getPrevious()) => is_cancellation($e),
-		default => false,
-	};
+	if ($e instanceof CancelledException) {
+		return true;
+	}
+
+	$previous = $e->getPrevious();
+
+	if ($previous !== null) {
+		return is_cancellation($previous);
+	}
+
+	return false;
 }
